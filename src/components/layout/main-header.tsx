@@ -18,7 +18,7 @@ function MainHeader() {
     const [pageTitle, setPageTitle] = useState('');
     const pathname = usePathname();
     const { theme } = useTheme()
-
+    console.log(isAuthenticated);
     useEffect(() => {
         const pathSegments = pathname.split('/').filter(Boolean);
         switch (pathSegments[1]) {
@@ -54,15 +54,17 @@ function MainHeader() {
                         <ElectricBoltIcon sx={{ color: 'yellow', fontSize: 12 }} />
                         <Typography>90</Typography>
                     </IconButton>
-                    {isAuthenticated ? (
-                        <IconButton color="inherit" onClick={handleLogout}>
-                            <ExitToAppIcon />
-                        </IconButton>
-                    ) : (
-                        <IconButton color="inherit" onClick={() => router.push('/auth')}>
-                            <AccountCircleIcon />
-                        </IconButton>
-                    )}
+                    {isAuthenticated && <IconButton color="inherit" onClick={handleLogout}>
+                        <Typography className='text-[12px]'>logout</Typography>
+                        <ExitToAppIcon />
+                    </IconButton>
+                    }
+
+
+                    {!isAuthenticated && <IconButton color="inherit" onClick={() => router.push('/auth')}>
+                        <Typography className='text-[12px]'>login</Typography>   <AccountCircleIcon />
+                    </IconButton>
+                    }
                 </div>
             </div>
             <Filter />

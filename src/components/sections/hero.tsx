@@ -2,7 +2,7 @@
 import React from 'react';
 import { CardContent, Typography, CardMedia } from '@mui/material';
 import { motion } from 'framer-motion';
-import { Product } from '@/@types/products';
+import { Product } from '@/@types/product';
 
 interface ProductsPageProps {
     products: Product[];
@@ -17,20 +17,20 @@ const gradients = [
 
 const Hero: React.FC<ProductsPageProps> = ({ products }) => {
     return (
-        <div className="relative box-border w-[calc(80% - 280px)] !max-w-[calc(60% - 280px)] overflow-hidden">
-            <div className="grid md:grid-cols-2  !max-w-[80%] gap-4">
-                {products.slice(0, 4).map((product, index) => (
+        <div className="box-border ">
+            <div className="grid md:grid-cols-2   gap-4">
+                {products?.slice(0, 4).map((product, index) => (
                     <motion.div
                         key={product.id}
-                        className="rounded-lg overflow-hidden  max-h-[15rem]"
+                        className="rounded-lg   max-h-[15rem]"
                         initial={{
                             backgroundImage: `linear-gradient(to right, ${gradients[index % gradients.length].base}, ${gradients[index % gradients.length].darker} , ${gradients[index % gradients.length].darker})`
                         }}
                         whileHover={{
                             backgroundImage: `linear-gradient(to left, ${gradients[index % gradients.length].base}, ${gradients[index % gradients.length].darker}, ${gradients[index % gradients.length].darker})`,
-                            scale: 1.03
+                            scale: 1.08
                         }}
-                        transition={{ duration: 1.0, ease: "easeInOut" }}
+                        transition={{ duration: .5, ease: "easeInOut" }}
                     >
                         <div className="flex flex-row items-stretch w-[36rem]">
                             <CardMedia
@@ -39,7 +39,7 @@ const Hero: React.FC<ProductsPageProps> = ({ products }) => {
                                 image={product.images[0]}
                                 alt={product.title}
                             />
-                            <CardContent className="flex-1 overflow-auto">
+                            <CardContent className="flex-1 ">
                                 <Typography variant="h5" component="div" className="text-lg font-bold">
                                     {product.title}
                                 </Typography>

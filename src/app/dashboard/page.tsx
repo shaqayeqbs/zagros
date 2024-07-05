@@ -9,6 +9,7 @@ export default async function Home() {
         < >
             <Hero products={data?.products} />
             <ProductsPage products={data?.products} />
+
         </>
     );
 }

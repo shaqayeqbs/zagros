@@ -29,7 +29,7 @@ const useLoginStore = create<LoginState>((set, get) => ({
             throw new Error("Login failed");
         } catch (error) {
             console.error('Login error:', error);
-            throw error; // Rethrow the error to be caught in the component
+            throw error;
         }
     },
 

@@ -18,7 +18,6 @@ instance.interceptors.request.use(
     config.headers["Access-Control-Allow-Credentials"] = "*";
     // if (token) {
     //   config.headers["Content-Type"] = "multipart/form-data";
-    //   //   config.headers["x-auth-token"] = token;
     // }
 
     return config;

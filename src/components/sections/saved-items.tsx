@@ -28,7 +28,7 @@ function SavedItems() {
     };
 
     return (
-        <Box sx={{ width: '100%', maxWidth: 360, color: theme.color, background: theme.primary, height: "100%" }}>
+        <Box sx={{ width: '100%', maxWidth: 460, color: theme.color, background: theme.primary, height: "100%" }}>
             <Typography variant="subtitle1" sx={{ display: 'flex', alignItems: 'center', ml: 2, mt: 3 }}>
                 <BookmarkIcon sx={{ mr: 1 }} /> Saved Items
             </Typography>
@@ -67,9 +67,9 @@ function SavedItems() {
             </ToggleButtonGroup>
             <List component="nav" sx={{ mt: 2 }}>
                 {['Item 1', 'Item 2', 'Item 3'].map((item, index) => (
-                    <ListItem button key={index}>
+                    <ListItem key={index}>
                         <ListItemText primary={item} />
-                        <ListItemIcon sx={{ color: theme.color }}>
+                        <ListItemIcon className='min-w-0' sx={{ color: theme.color }}>
                             <ChevronRightIcon />
                         </ListItemIcon>
                     </ListItem>

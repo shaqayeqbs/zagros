@@ -12,7 +12,6 @@ export default function PageTheme({ children }: { children: React.ReactNode }) {
             minHeight: '100vh',
             boxSizing: "border-box",
             width: "100%",
-            overflowY: "scroll",
             overflowX: "hidden"
         }}>
             {children}

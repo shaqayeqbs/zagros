@@ -1,6 +1,11 @@
 import type { Metadata } from "next";
 import SidebarDrawer from "@/components/layout/side-bar";
-import MainHeader from "@/components/layout/main-header";
+import dynamic from "next/dynamic";
+
+const MainHeader = dynamic(
+    () => import("@/components/layout/main-header"),
+    { ssr: false }
+)
 
 export const metadata: Metadata = {
     title: "Create Next App",
@@ -14,11 +19,10 @@ export default function RootLayout({
 }>) {
     return (
 
-        <div className="flex h-full min-h-screen">
+        <div className="flex hide-scrollbar min-h-screen">
             <SidebarDrawer />
-
             <MainHeader />
-            <main className="flex-grow pt-36 w-full relative box-border  p-4">
+            <main className=" pt-36 w-full  p-4">
                 {children}
             </main>
         </div>
